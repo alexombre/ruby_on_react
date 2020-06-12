@@ -8,7 +8,7 @@ GEM
   specs:
     diff-lcs (1.3)
     dotenv (2.7.5)
-    rake (10.5.0)
+    rake (13.0.1)
     rspec (3.9.0)
       rspec-core (~> 3.9.0)
       rspec-expectations (~> 3.9.0)
@@ -30,7 +30,7 @@ PLATFORMS
 DEPENDENCIES
   bundler (~> 1.17)
   dotenv
-  rake (~> 10.0)
+  rake (~> 13.0)
   rspec (~> 3.0)
   ruby_on_react!
   thor (~> 0.20)
