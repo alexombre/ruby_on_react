@@ -17,8 +17,9 @@ module ReactOnRails
       #system("npx create-react-app #{name} && cd #{name}/")
       self.init
       system("rm -r -f src/ && mkdir src/ && cd src/ && mkdir assets components config pages services redux style components/route")
-      system("touch App.jsx index.js && echo #{File.open("#{path_to_gem}/assets/appTemplate.txt").read} >> App.jsx && echo #{File.open("#{path_to_gem}/assets/indexTemplate.txt").read} >> index.js")
-      
+      system("touch src/App.jsx src/index.js")
+      File.write("src/App.jsx", File.open(`gem which \"appTemplate.txt\"`).read ) 
+      File.write("src/index.js", File.open(`gem which \"indexTemplate.txt\"`).read )
           
     end
     
