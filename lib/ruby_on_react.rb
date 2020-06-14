@@ -1,6 +1,7 @@
 require "ruby_on_react/version"
 require 'thor'
 require 'dotenv'
+require_relative '../assets/Template'
 Dotenv.load
 
 module ReactOnRails
@@ -10,16 +11,15 @@ module ReactOnRails
     
     desc "new <APPNAME>", "init new react app"
     option :noredux
+    option :rien
     def new(name)
-      p "I'm going to create react app #{name}"
-      path_to_gem = `gem which \"ruby_on_react\"`
-      path_to_gem = path_to_gem.split("/lib").first
+      p "I'm going to create react app #{options[:noredux]}"
       #system("npx create-react-app #{name} && cd #{name}/")
       self.init
       system("rm -r -f src/ && mkdir src/ && cd src/ && mkdir assets components config pages services redux style components/route")
       system("touch src/App.jsx src/index.js")
-      File.write("src/App.jsx", File.open(`gem which \"appTemplate.txt\"`).read ) 
-      File.write("src/index.js", File.open(`gem which \"indexTemplate.txt\"`).read )
+      File.write("src/App.jsx", appTemplate ) 
+      File.write("src/index.js", indexTemplate(options) )
           
     end
     
